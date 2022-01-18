@@ -100,7 +100,7 @@ shareButton.addEventListener('click', event => {
   if (navigator.share) {
    navigator.share({
       title: 'Recipt-<?php echo $data['booking_bill_id'];  ?>',
-      url:  window.location.href
+      url: 'http://apps.caresofts.com/admin/reports.php?id=230721'
     }).then(() => {
       console.log('Thanks for sharing!');
     })

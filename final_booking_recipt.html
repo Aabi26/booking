@@ -86,7 +86,7 @@
             <tbody>
                 <tr>
                     <td colspan="3" style="font-family: Poppins, sans-serif;text-align: center;font-size: 14px;">Auto Genrated By prabhavatids.co.in</td>
-                    <th class="text-center" style="width: 252.828px;"><button  class="share-button" type="button" style="background: var(--bs-purple);border-style: none;">Share Recipt</button><br></th>
+                    <th class="text-center" style="width: 252.828px;"><button  id="shareBtn" class="btn btn-primary" type="button" style="background: var(--bs-purple);border-style: none;">Share Recipt</button><br></th>
                     <th class="text-center" style="width: 252.828px;"><button  class="btn btn-primary" type="button" style="border-style: none;background: var(--bs-purple);">Download PDF</button><br></th>
                 </tr>
             </tbody>
@@ -94,19 +94,65 @@
     </div>
     <script type="text/javascript">
 
-    const shareButton = document.querySelector('.share-button');
+    document.querySelector('#shareBtn')
 
-shareButton.addEventListener('click', event => {
-  if (navigator.share) {
-   navigator.share({
-      title: 'Recipt-',
-      url: 'http://apps.caresofts.com/admin/reports.php?id=230721'
-    }).then(() => {
-      console.log('Thanks for sharing!');
-    })
-    .catch(console.error);
-    }
-});
+         .addEventListener('click', event => {
+
+
+
+             // Fallback, Tries to use API only
+
+             // if navigator.share function is
+
+             // available
+
+             if (navigator.share) {
+
+                 navigator.share({
+
+
+
+                     // Title that occurs over
+
+                     // web share dialog
+
+                     title: 'GeeksForGeeks',
+
+
+
+                     // URL to share
+
+                     url: 'https://geeksforgeeks.org'
+
+                 }).then(() => {
+
+                     console.log('Thanks for sharing!');
+
+                 }).catch(err => {
+
+
+
+                     // Handle errors, if occured
+
+                     console.log(
+
+                     "Error while using Web share API:");
+
+                     console.log(err);
+
+                 });
+
+             } else {
+
+
+
+                 // Alerts user if API not available
+
+                 alert("Browser doesn't support this API !");
+
+             }
+
+         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
